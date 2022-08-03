@@ -1,8 +1,11 @@
-package com.maktay.weatherforecast
+package com.maktay.weatherforecast.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.maktay.weatherforecast.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
