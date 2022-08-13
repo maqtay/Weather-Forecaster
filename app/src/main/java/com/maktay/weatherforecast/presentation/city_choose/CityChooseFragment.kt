@@ -16,10 +16,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
 import com.maktay.weatherforecast.R
 import com.maktay.weatherforecast.databinding.FragmentCityChooseBinding
 import com.maktay.weatherforecast.domain.model.SearchResult
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
@@ -67,8 +69,8 @@ class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
                             colorRes
                         )
                     )
-                searchResult.let {
-                    selectedSearchResult = it!!
+                searchResult?.let {
+                    selectedSearchResult = it
                 }
             })
 

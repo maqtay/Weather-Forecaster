@@ -12,4 +12,8 @@
     <color name="search_grey">#7E8389</color>
     <color name="search_fab">#A964D8</color>
     <color name="search_fab_with_opacity">#40A964D8</color>
+    <color name="grey_ea">#EAEAEA</color>
+    <color name="grey_ea_fifty">#80EAEAEA</color>
+    <color name="link_text_color">#155BE3</color>
+    <color name="time_color">#808080</color>
 </resources>

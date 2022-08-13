@@ -6,13 +6,20 @@
         <entry key="app/src/main/res/drawable/bg_city_item.xml" value="0.156" />
         <entry key="app/src/main/res/drawable/bg_city_item_selected.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/bg_search_bar.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/bg_weather_info.xml" value="0.2965" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.298" />
+        <entry key="app/src/main/res/layout-v28/fragment_home.xml" value="0.29270833333333335" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.40989583333333335" />
+        <entry key="app/src/main/res/layout/comp_home_fragment_header.xml" value="0.4167638142903646" />
+        <entry key="app/src/main/res/layout/comp_weather_bottom_sheet.xml" value="0.27565228497540506" />
+        <entry key="app/src/main/res/layout/comp_weather_info.xml" value="0.552379862467448" />
         <entry key="app/src/main/res/layout/fragment_city_choose.xml" value="0.47039337158203126" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3296875" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28194580078125" />
+        <entry key="app/src/main/res/layout/fragment_home_with_bottomsheet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.4239583333333333" />
         <entry key="app/src/main/res/layout/item_city.xml" value="0.3496376811594203" />
+        <entry key="app/src/main/res/layout/item_weather_time.xml" value="0.3170289855072464" />
       </map>
     </option>
   </component>
