@@ -1,20 +1,20 @@
 package com.maktay.weatherforecast.presentation.city_choose
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.maktay.weatherforecast.common.Constants
 import com.maktay.weatherforecast.common.RequestState
 import com.maktay.weatherforecast.domain.model.SearchResult
 import com.maktay.weatherforecast.domain.use_case.SearchCityUseCase
+import com.maktay.weatherforecast.util.MyPreference
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class CityChooseViewModel @Inject constructor(private val searchCityUseCase : SearchCityUseCase) :
+class CityChooseViewModel @Inject constructor(private val searchCityUseCase : SearchCityUseCase, private val prefs : MyPreference) :
     ViewModel() {
     val state = MutableLiveData<CityChooseState>()
 
@@ -22,7 +22,8 @@ class CityChooseViewModel @Inject constructor(private val searchCityUseCase : Se
         searchCityUseCase.invoke(query).onEach { result ->
             when (result) {
                 is RequestState.Success -> {
-                    state.value = CityChooseState(searchResult = result.data!! as List<SearchResult>)
+                    state.value =
+                        CityChooseState(searchResult = result.data!! as List<SearchResult>)
                 }
 
                 is RequestState.Error -> {
@@ -36,5 +37,9 @@ class CityChooseViewModel @Inject constructor(private val searchCityUseCase : Se
                 }
             }
         }.launchIn(viewModelScope)
+    }
+
+    fun setSelectedCity(searchResult : SearchResult) {
+        prefs.setModel(searchResult, Constants.CHOSEN_CITY)
     }
 }

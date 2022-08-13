@@ -24,9 +24,9 @@ class SplashFragment : Fragment() {
         savedInstanceState : Bundle?
     ) : View? {
         val state = splashViewModel.state.value
-        val bundle = bundleOf("selectedSearchResult" to SearchResult())
+        val bundle = bundleOf("selectedSearchResult" to state)
         Handler(Looper.getMainLooper()).postDelayed({
-            if (!state.toBoolean())
+            if (state.country?.isBlank() == true)
                 findNavController().navigate(R.id.action_splashFragment_to_cityChooseFragment)
             else
                 findNavController().navigate(R.id.action_splashFragment_to_homeFragment, bundle)

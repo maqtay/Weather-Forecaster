@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
 import com.maktay.weatherforecast.R
 import com.maktay.weatherforecast.databinding.FragmentCityChooseBinding
 import com.maktay.weatherforecast.domain.model.SearchResult
@@ -49,8 +48,9 @@ class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
 
     private fun observeData() {
         cityChooseViewModel.state.observe(viewLifecycleOwner) {
-            if (it.searchResult.isNotEmpty())
+            if (it.searchResult.isNotEmpty()) {
                 cityChooseAdapter.setList(it.searchResult)
+            }
         }
     }
 
@@ -119,6 +119,7 @@ class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
 
             R.id.fab_go_home_page -> {
                 val bundle = bundleOf("selectedSearchResult" to selectedSearchResult)
+                cityChooseViewModel.setSelectedCity(selectedSearchResult)
                 findNavController().navigate(
                     R.id.action_cityChooseFragment_to_homeFragment,
                     bundle

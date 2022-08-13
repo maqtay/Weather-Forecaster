@@ -16,7 +16,7 @@
         <entry key="app/src/main/res/layout/comp_weather_info.xml" value="0.552379862467448" />
         <entry key="app/src/main/res/layout/fragment_city_choose.xml" value="0.47039337158203126" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.28194580078125" />
-        <entry key="app/src/main/res/layout/fragment_home_with_bottomsheet.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home_with_bottomsheet.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.4239583333333333" />
         <entry key="app/src/main/res/layout/item_city.xml" value="0.3496376811594203" />
         <entry key="app/src/main/res/layout/item_weather_time.xml" value="0.3170289855072464" />
