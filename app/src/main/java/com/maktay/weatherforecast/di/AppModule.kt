@@ -3,7 +3,9 @@ package com.maktay.weatherforecast.di
 import com.maktay.weatherforecast.common.Constants
 import com.maktay.weatherforecast.data.remote.OpenWeatherApi
 import com.maktay.weatherforecast.data.remote.repository.CityChooseRepositoryImpl
+import com.maktay.weatherforecast.data.remote.repository.WeatherInfoRepositoryImpl
 import com.maktay.weatherforecast.domain.repository.CityChooseRepository
+import com.maktay.weatherforecast.domain.repository.WeatherInfoRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,5 +31,11 @@ class AppModule {
     @Singleton
     fun provideCityChooseRepository(api : OpenWeatherApi) : CityChooseRepository {
         return CityChooseRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideWeatherInfoRepository(api : OpenWeatherApi) : WeatherInfoRepository {
+        return WeatherInfoRepositoryImpl(api)
     }
 }

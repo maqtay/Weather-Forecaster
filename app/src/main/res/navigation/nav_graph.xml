@@ -36,5 +36,8 @@
         <argument
             android:name="selectedSearchResult"
             app:argType="com.maktay.weatherforecast.domain.model.SearchResult" />
+        <action
+            android:id="@+id/action_homeFragment_to_cityChooseFragment"
+            app:destination="@id/cityChooseFragment" />
     </fragment>
 </navigation>

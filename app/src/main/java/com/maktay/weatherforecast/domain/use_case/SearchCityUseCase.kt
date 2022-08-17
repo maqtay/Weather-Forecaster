@@ -16,7 +16,7 @@ class SearchCityUseCase @Inject constructor(var cityChooseRepository : CityChoos
         } catch (e : Exception) {
             emit(
                 RequestState.Error<SearchResult>(
-                    e.localizedMessage ?: "An unexpected error occured"
+                    e.localizedMessage ?: "An unexpected error occured."
                 )
             )
         }

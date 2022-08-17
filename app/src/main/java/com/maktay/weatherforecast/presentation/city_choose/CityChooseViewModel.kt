@@ -28,7 +28,7 @@ class CityChooseViewModel @Inject constructor(private val searchCityUseCase : Se
 
                 is RequestState.Error -> {
                     state.value = CityChooseState(
-                        error = result.message ?: "An unexpected error occured"
+                        error = result.message ?: "An unexpected error occured."
                     )
                 }
 
