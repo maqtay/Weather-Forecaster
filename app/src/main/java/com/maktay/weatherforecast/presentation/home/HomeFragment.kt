@@ -16,6 +16,7 @@ import com.maktay.weatherforecast.R
 import com.maktay.weatherforecast.common.Utils
 import com.maktay.weatherforecast.databinding.FragmentHomeWithBottomsheetBinding
 import com.maktay.weatherforecast.presentation.home.today_weather_info.TodayWeatherInfoAdapter
+import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,6 +42,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         initBottomSheet()
         setViewVariables()
         observeData()
+        observeBackgroundImage()
         initTodayRecyclerView()
     }
 
@@ -64,6 +66,18 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     Utils.getDateTime(it.result?.current?.date!!)
             }
         }
+    }
+
+    private fun observeBackgroundImage() {
+        homeFragmentViewModel.backgroundImageUrl.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                setBackgroundImage(it)
+            }
+        }
+    }
+
+    private fun setBackgroundImage(url : String) {
+        Picasso.with(requireContext()).load(url).fit().into(binding.mainLayout.background)
     }
 
     private fun initBottomSheet() {
