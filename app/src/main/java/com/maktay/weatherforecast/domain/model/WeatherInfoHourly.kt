@@ -22,7 +22,8 @@ class Current(
     var humidity : Int? = 0,
     var uv : Int? = 0,
     var windSpeed : Double? = .0,
-    var weather : Weather = Weather()
+    var weather : Weather = Weather(),
+    var backgroundImageUrl : String? = ""
 ) {
     fun getTempDegree() : String {
         return temp?.minus(270)?.toInt().toString() + "°"
@@ -47,7 +48,6 @@ class Current(
         return "${windSpeed?.toInt()} KM"
     }
 }
-
 
 
 data class Weather(
