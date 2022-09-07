@@ -46,7 +46,7 @@ fun HourlyDto.toHourly() : Hourly {
 
 data class MinutelyDto(
     @SerializedName("dt") var dt : Int? = null,
-    @SerializedName("precipitation") var precipitation : Int? = null
+    //@SerializedName("precipitation") var precipitation : Int? = null
 )
 
 data class CurrentDto(
