@@ -58,14 +58,20 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun observeData() {
         homeFragmentViewModel.state.observe(viewLifecycleOwner) {
-            if (it.isLoading == false) {
+            if (it.isLoading == false && it.error == null) {
                 binding.mainLayout.header.refresh.clearAnimation()
                 binding.mainLayout.weatherModel = it.result
                 binding.mainLayout.compWeatherInfo.weatherInfoModel = it.result?.current
                 binding.mainLayout.header.timeText.text =
                     Utils.getDateTime(it.result?.current?.date!!)
+                setTodayWeatherInfo(it)
             }
         }
+    }
+
+    private fun setTodayWeatherInfo(hourlyWeatherInfoState : HourlyWeatherInfoState) {
+        val newList = hourlyWeatherInfoState.result?.hourly?.subList(0, 12)
+        todayWeatherInfoAdapter.setList(newList)
     }
 
     private fun observeBackgroundImage() {
@@ -108,7 +114,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun initTodayRecyclerView() {
-        todayWeatherInfoAdapter = TodayWeatherInfoAdapter()
+        todayWeatherInfoAdapter = TodayWeatherInfoAdapter(requireContext())
         binding.bottomsheet.recyclerViewWeatherInfoToday.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.bottomsheet.recyclerViewWeatherInfoToday.adapter = todayWeatherInfoAdapter

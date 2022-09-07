@@ -29,7 +29,7 @@ class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
     private val cityChooseViewModel : CityChooseViewModel by viewModels()
     var runnable = Runnable {}
     private val handler = Handler(Looper.myLooper()!!)
-    private lateinit var selectedSearchResult : SearchResult
+    private var selectedSearchResult : SearchResult = SearchResult()
 
     override fun onCreateView(
         inflater : LayoutInflater,
@@ -86,6 +86,7 @@ class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
         binding.clearTextButton.setOnClickListener(this)
         binding.fabGoHomePage.setOnClickListener(this)
         binding.searchBarEdittext.addTextChangedListener(this)
+        binding.selectCityText.isVisible = true
     }
 
     override fun beforeTextChanged(p0 : CharSequence?, p1 : Int, p2 : Int, p3 : Int) {
@@ -115,15 +116,18 @@ class CityChooseFragment : Fragment(), TextWatcher, View.OnClickListener {
         when (p0?.id) {
             R.id.clear_text_button -> {
                 binding.searchBarEdittext.text.clear()
+                selectedSearchResult = SearchResult()
             }
 
             R.id.fab_go_home_page -> {
-                val bundle = bundleOf("selectedSearchResult" to selectedSearchResult)
-                cityChooseViewModel.setSelectedCity(selectedSearchResult)
-                findNavController().navigate(
-                    R.id.action_cityChooseFragment_to_homeFragment,
-                    bundle
-                )
+                if (selectedSearchResult.name?.isNotEmpty() == true) {
+                    val bundle = bundleOf("selectedSearchResult" to selectedSearchResult)
+                    cityChooseViewModel.setSelectedCity(selectedSearchResult)
+                    findNavController().navigate(
+                        R.id.action_cityChooseFragment_to_homeFragment,
+                        bundle
+                    )
+                }
             }
         }
     }

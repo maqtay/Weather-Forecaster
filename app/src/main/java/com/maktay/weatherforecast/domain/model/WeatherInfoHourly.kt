@@ -14,7 +14,11 @@ data class Hourly(
     var uv : Int? = 0,
     var windSpeed : Double? = .0,
     var weather : Weather = Weather()
-)
+) {
+    fun getHourlyTempDegree() : String {
+        return temp?.minus(270)?.toInt().toString() + "°"
+    }
+}
 
 class Current(
     var date : Int? = 0,
@@ -48,7 +52,6 @@ class Current(
         return "${windSpeed?.toInt()} KM"
     }
 }
-
 
 data class Weather(
     var id : Int? = 0,
