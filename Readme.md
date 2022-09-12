@@ -16,6 +16,6 @@ and more technologies.
 
 ### Here you can find some screenshots of the application.
 
-<img src="/assets/ss1.png" alt="ScreenShot 1" style="height: 100px; width:100px;"/>
-<img src="/assets/ss2.png" alt="ScreenShot 2" style="height: 100px; width:100px;"/>
-<img src="/assets/ss3.png" alt="ScreenShot 3" style="height: 100px; width:100px;"/>
+<img src="/assets/ss1.jpg" alt="ScreenShot 1" style="height: 100px; width:100px;"/>
+<img src="/assets/ss2.jpg" alt="ScreenShot 2" style="height: 100px; width:100px;"/>
+<img src="/assets/ss3.jpg" alt="ScreenShot 3" style="height: 100px; width:100px;"/>
