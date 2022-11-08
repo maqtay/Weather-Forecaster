@@ -1,0 +1,31 @@
+name: task - validate commit on master
+on:
+  push:
+    branches: [ new ]
+
+  jobs:
+    basic_job:
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        packages: write
+
+      steps:
+        - name: Setup Actions.
+          uses: actions/setup-java@v2
+          with:
+            java-version: '11'
+            distribution: 'temurin'
+            cache: 'gradle'
+
+        - name: Generate AAR and APK files
+          if: always()
+          run: ./gradlew assembleDebug
+
+        - name: Upload AAR files
+          if: always()
+          uses: actions/upload-artifact@v2
+          with:
+            name: artifacts.zip
+            path: |
+              app/build/outputs/apk/debug/app-debug.apk
